@@ -11,29 +11,29 @@ $ pip install ims
 ### Usage
 Query for the movie name:
 ```
-$ ims -movie [movie name]
+$ ims movie [movie name]
 ```
 
 ```
-$ ims -movie 'the dark knight'
+$ ims movie the dark knight
 ```
 
 ```
-$ ims -movie 'the minions 2015'
+$ ims movie the minions 2015
 ```
 
 Query for TV series:
 
 ```
-$ ims -tv s[series no]e[episode no]
+$ ims tv s[series no]e[episode no]
 ```
 
 ```
-$ ims -tv 'silicon valley s03e01'
+$ ims tv silicon valley s03e01
 ```
 
 ```
-$ ims -tv 'game of thrones s06e05'
+$ ims tv game of thrones s06e05
 ```
 
 ### Video Demo
@@ -55,4 +55,4 @@ Tried and tested on MacOSX and Ubuntu.
 
 ### Disclaimer
 
-Watching copyright content might me illegal in your country.
+Watching copyrighted content might be illegal in your country.
