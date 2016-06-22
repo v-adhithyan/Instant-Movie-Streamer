@@ -37,7 +37,11 @@ def get_input():
         elif args.tv:
             query = (movie_name + ' category:tv').replace(' ', '%20')
         else:
-            print 'Invalid format, please specify if its a movie or tv series.'
+            print 'Syntax has been changed recently. The correct syntax is:'
+            print 'ims -movie \'movie name\''
+            print '(or)'
+            print 'ims -tv \'tv series name with episode no\''
+            print 'NOTE: the movie name or series name should be given within single or double quotes'
             parser.print_help()
             exit()
     except Exception as e:
