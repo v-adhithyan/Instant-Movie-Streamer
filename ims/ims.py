@@ -24,25 +24,24 @@ def test_system():
 def get_input():
     """Gets the input from user and formats it."""
     try:
-        movie_name = ''
         parser = argparse.ArgumentParser(description="Searches for the movie/ tv series torrents and streams them instantly.")
-        parser.add_argument('-movie', action='store', dest = 'movie', help='Movie to stream')
-        parser.add_argument('-tv', action='store', dest = 'tv', help='Series episode to stream')
+        parser.add_argument('mode', choices=['movie', 'tv'], help='Movie or TV show to stream')
+        parser.add_argument('title', nargs='+', help='Title of movie/TV show')
         args = parser.parse_args()
 
-        query = ' '.join(sys.argv[1:])
-        movie_name = ' '.join(query.split()[1:])
-        if args.movie:
+        category = args.mode
+        query = ' '.join(args.title)
+        movie_name = ' '.join(args.title)
+        if category == 'movie':
             query = (movie_name + ' category:movies').replace(' ', '%20')
-        elif args.tv:
+        elif category == 'tv':
             query = (movie_name + ' category:tv').replace(' ', '%20')
         else:
-            print 'Syntax has been changed recently. The correct syntax is:'
-            print 'ims -movie \'movie name\''
-            print '(or)'
-            print 'ims -tv \'tv series name with episode no\''
-            print 'NOTE: the movie name or series name should be given within single or double quotes'
-            parser.print_help()
+            print 'Wrong syntax.'
+            print 'The correct syntax is:'
+            print 'ims movie movie name'
+            print 'or'
+            print 'ims tv show name'
             exit()
     except Exception as e:
         print e
